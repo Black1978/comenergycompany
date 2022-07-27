@@ -1,0 +1,198 @@
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+    background: #ffffff;
+}
+header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 0;
+    opacity: 0;
+}
+.header__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    height: 120px;
+    width: 98%;
+}
+.header__icon-wrapper {
+    display: none;
+}
+.header__logo {
+    position: absolute;
+    left: 10%;
+    top: -90px;
+    transform: translate(-50%, 0%);
+    width: 300px;
+    height: 300px;
+}
+.menu__body {
+    position: relative;
+    z-index: 3;
+}
+.menu__list {
+    display: flex;
+}
+.menu__list > li {
+    padding: 27px 15px;
+}
+.menu__list li::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: brown;
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    z-index: 10;
+    display: none;
+}
+.menu__list li:last-child:after {
+    display: none;
+}
+.menu__list li:nth-child(2):after {
+    display: none;
+}
+.menu__link {
+    color: #054d56;
+    font-size: 1rem;
+    font-family: 'Neo Sans Std';
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.logo_link {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 1500px) {
+    .header__logo {
+        left: 140px;
+    }
+}
+@media (max-width: 800px) {
+    .header__logo {
+        left: 110px;
+    }
+}
+@media (max-width: 1025px) and (min-width: 768px) {
+    .menu__link {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .header::before {
+        z-index: 3;
+        opacity: 1;
+    }
+    .header__icon-wrapper {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 10px;
+        z-index: 3;
+    }
+    .header__icon {
+        position: relative;
+        width: 30px;
+        height: 20px;
+        z-index: 3;
+    }
+    .header__icon::before,
+    .header__icon::after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background-color: #f06009;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+    .header__icon::before {
+        top: 0;
+    }
+    .header__icon::after {
+        bottom: 0;
+    }
+    .header__icon span {
+        position: absolute;
+        left: 0;
+        top: 9px;
+        height: 1px;
+        width: 100%;
+        background-color: #f06009;
+        transition: all 0.3s ease 0s;
+    }
+    .header__logo {
+        left: 70px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 4;
+        width: 175px;
+        height: 175px;
+    }
+    .header__menu {
+        position: fixed;
+        left: 0;
+        top: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #f0f0f0;
+        z-index: 2;
+        transition: all 0.3s ease 0s;
+        overflow: auto;
+    }
+    .header__menu.active {
+        top: 0;
+    }
+    .menu__body {
+        padding-top: 90px;
+        padding-left: 15px;
+    }
+    .menu__body .menu__list > li {
+        padding: 0 0 25px 0;
+    }
+    .menu__list {
+        display: block;
+    }
+    .menu__list li:first-child:after {
+        display: none;
+    }
+    .menu__list li:nth-child(3):after {
+        display: none;
+    }
+    .header {
+        top: 0;
+        height: 75px;
+    }
+    /*-------------The beginning of the active menu icon-------------------*/
+    .header__icon.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .header__icon.active::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+    .header__icon.active span {
+        transform: scale(0);
+    }
+    /*-------------The end of the active menu icon-------------------*/
+    body.lock {
+        overflow: hidden;
+    }
+}
+
+/*-------------The end of the media requests-------------------*/
